@@ -5,19 +5,22 @@ import About from './pages/About'
 import Home from './pages/Home'
 import Logement from './pages/Logement'
 import NotFound from './pages/NotFound'
+import './style/style.css'
 
 const App = () => {
   return (
-    <div>
-      <Header />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/Logement" element={<Logement />} />
-        <Route path="/About" element={<About />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
+    <>
+      <div className="main-container">
+        <Header />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/Logement/:id" element={<Logement />} />
+          <Route path="/About" element={<About />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </div>
       <Footer />
-    </div>
+    </>
   )
 }
 

@@ -3,12 +3,12 @@ import kasa from '../assets/logos/kasa.png'
 
 const Header = () => {
   return (
-    <>
+    <header>
       <div>
-        <img src={kasa} alt="Kasa Logo" />
+        <img src={kasa} alt="Kasa Logo" className="logo" />
       </div>
       <div>
-        <ul>
+        <ul className="navbar">
           <NavLink to="/">
             <li>Accueil</li>
           </NavLink>
@@ -17,7 +17,7 @@ const Header = () => {
           </NavLink>
         </ul>
       </div>
-    </>
+    </header>
   )
 }
 
