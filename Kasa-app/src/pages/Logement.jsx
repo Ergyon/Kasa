@@ -10,7 +10,6 @@ const Logement = () => {
 
   return (
     <div className="housing">
-      <img src={logement.cover} alt={logement.title} className="housing__image" />
       <h3 className="housing__title">{logement.title}</h3>
       <span className="housing__location">{logement.location}</span>
     </div>

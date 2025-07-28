@@ -1,3 +1,23 @@
+@keyframes showContent {
+  from {
+    opacity: 0.7;
+    height: 0px;
+  }
+  to {
+    opacity: 1;
+    height: 60px;
+  }
+}
+@keyframes hideContent {
+  from {
+    opacity: 1;
+    height: 60px;
+  }
+  to {
+    opacity: 0.7;
+    height: 0;
+  }
+}
 body {
   box-sizing: border-box;
   margin: 0;
@@ -96,6 +116,84 @@ header .navbar a:focus {
   position: absolute;
   left: 10px;
   bottom: 10px;
+}
+
+.banner-about {
+  height: 220px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 25px;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.2509803922);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.banner-about:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 25px;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.2509803922);
+}
+
+.infos-container {
+  padding-inline: 9%;
+  margin-top: 3rem;
+}
+
+.collapser-block {
+  margin-bottom: 2rem;
+}
+
+.collapser {
+  width: 100%;
+  height: 54px;
+  background-color: #FF6060;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+}
+.collapser__title {
+  color: white;
+  font-size: 24px;
+  font-weight: 700;
+  padding-left: 1rem;
+  margin-block: 0;
+}
+.collapser__arrow {
+  padding-right: 1rem;
+  cursor: pointer;
+  transition: 0.3s ease-out;
+  transform-origin: 10px;
+}
+.collapser__arrow.open {
+  transform: rotate(-180deg);
+}
+.collapser__content {
+  background: rgba(238, 244, 248, 0.726);
+  padding-block: 1rem;
+  margin-bottom: 2rem;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  padding-left: 1rem;
+  overflow: hidden;
+}
+.collapser__content.open {
+  animation: showContent 0.3s linear forwards;
+}
+.collapser__content.close {
+  animation: hideContent 0.3s linear forwards;
+}
+.collapser__content__txt {
+  font-size: 1.2rem;
+  color: rgba(19, 18, 18, 0.795);
 }
 
 footer {
