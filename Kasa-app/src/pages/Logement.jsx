@@ -1,5 +1,6 @@
 import { useParams } from 'react-router-dom'
 import Error from '../components/Error'
+import HousingInfos from '../components/HousingInfos'
 import SliderCover from '../components/SliderCover'
 import datas from '../data/datas.json'
 
@@ -12,8 +13,15 @@ const Logement = () => {
   return (
     <div className="housing">
       <SliderCover pictures={logement.pictures} />
-      <h3 className="housing__title">{logement.title}</h3>
-      <span className="housing__location">{logement.location}</span>
+      <HousingInfos
+        title={logement.title}
+        location={logement.location}
+        host={logement.host}
+        rating={logement.rating}
+        tags={logement.tags}
+        description={logement.description}
+        equipments={logement.equipments}
+      />
     </div>
   )
 }

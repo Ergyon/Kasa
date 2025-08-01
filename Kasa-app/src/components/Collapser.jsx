@@ -6,18 +6,7 @@ const Collapser = ({ title, content }) => {
   const [isVisible, setIsVisible] = useState(false)
 
   const handleCollapse = () => {
-    if (isOpen) {
-      setIsOpen(false)
-    } else {
-      setIsVisible(true)
-      setIsOpen(true)
-    }
-  }
-
-  const handleAnimation = () => {
-    if (!isOpen) {
-      setIsVisible(false)
-    }
+    setIsOpen(!isOpen)
   }
 
   return (
@@ -26,9 +15,17 @@ const Collapser = ({ title, content }) => {
         <h4 className="collapser__title">{title}</h4>
         <img src={arrowUp} alt="Voir plus" className={`collapser__arrow ${isOpen ? 'open' : ''}`} />
       </div>
-      {isVisible && (
-        <div className={`collapser__content ${isOpen ? 'open' : 'close'}`} onAnimationEnd={handleAnimation}>
-          <span className="collapser__content__txt">{content}</span>
+      {isOpen && (
+        <div className="collapser__content">
+          {Array.isArray(content) ? (
+            <ul className="collapser__content__list">
+              {content.map((item, index) => (
+                <li key={index}>{item}</li>
+              ))}
+            </ul>
+          ) : (
+            <span className="collapser__content__txt">{content}</span>
+          )}
         </div>
       )}
     </div>
